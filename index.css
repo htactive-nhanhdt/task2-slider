@@ -42,3 +42,6 @@
 #slider .currentIndex .active {
     background-color: rebeccapurple;
 }
+#slider .currentIndex .current-btn:hover {
+    cursor: pointer;
+}
