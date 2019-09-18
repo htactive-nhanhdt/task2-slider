@@ -1,0 +1,44 @@
+#slider {
+    margin: 100px auto;
+    position: relative;
+    width: 500px;
+    height: 500px; 
+    
+
+}
+#slider .slidePic {    
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+#slider .btn {
+    width: 30px;
+    height: 30px;
+}
+#slider .btn:hover {
+    cursor: pointer;
+}
+#slider .left {    
+    position: absolute;
+    top: 50%;
+    
+}
+#slider .right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+#slider .currentIndex {
+    display: flex;
+    width: 200px;
+   
+    justify-content: space-around;
+    margin: 0 auto;
+}
+#slider .currentIndex .current-btn {
+    border: 1px solid;
+    padding: 3px;
+}
+#slider .currentIndex .active {
+    background-color: rebeccapurple;
+}
