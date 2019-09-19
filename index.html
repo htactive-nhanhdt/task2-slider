@@ -15,8 +15,8 @@
         <img class="slidePic" src="./img/pic2.jpg" alt="">
         <img class="slidePic" src="./img/pic3.jpg" alt="">
 
-        <img onclick="carousel(slideIndex-1)" class="btn left" src="./img/left-arrow.svg" alt="">
-        <img onclick="carousel(slideIndex+1)" class="btn right" src="./img/right-arrow.svg" alt="">
+        <img onclick="carousel(slideIndex -=2)" class="btn left" src="./img/left-arrow.svg" alt="">
+        <img onclick="carousel(slideIndex, rightClick=true)" class="btn right" src="./img/right-arrow.svg" alt="">
         <div class="currentIndex">
             <p onclick="currentActive(1)" class="current-btn">1</p>
             <p onclick="currentActive(2)" class="current-btn">2</p>
@@ -26,6 +26,7 @@
 </body>
 <script>
     var slideIndex = 0;
+    var rightClick = false;
     carousel();
     setInterval(carousel, 5000);
     function carousel() {
@@ -33,21 +34,21 @@
         var nums = document.getElementsByClassName("current-btn")
         for (let i = 0; i < x.length; i++) {
             x[i].style.display = "none";
-        }
-        for (i = 0; i < nums.length; i++) {
+            x[i].className = x[i].className.replace(" reverse", "")
             nums[i].className = nums[i].className.replace(" active", "");
         }
         slideIndex++;
         if (slideIndex < 1) { slideIndex = x.length }
         if (slideIndex > x.length) { slideIndex = 1 }
+        if (rightClick == true) { x[slideIndex - 1].className += " reverse" }
         x[slideIndex - 1].style.display = "block";
         nums[slideIndex - 1].className += " active";
+        rightClick = false;
     }
-    function currentActive(n){
-        slideIndex=n-1;      
+    function currentActive(n) {
+        slideIndex = n - 1;
         return carousel(slideIndex);
     }
-
 </script>
 
 </html>
